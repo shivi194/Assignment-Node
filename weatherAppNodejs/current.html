@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <script src="weather.js"></script> 
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     -->
+    <link rel="stylesheet" href="style.css"> 
+ </head>
+ <body>
+  <div class="navheading">
+      <img src="logo.png" id="logo"/>
+      Weather App
+  </div>
+     <h3 id="hng">Enter city Name :</h3>
+     <input type="text" name="city" id="city" placeholder="Enter city name"/><br>
+     <span class="error" id="error"></span><br/>
+     <button id="btn" value="Search Here">Search Here </button>
+     <button id="btn2" value="Reset All">Reset</button>
+    <br/>
+     
+     <div class="box">
+        <div class="wave -one"></div>
+        <div class="wave -two"></div>
+        <div class="wave -three"></div> 
+        <h5>Weather Details here</h5>
+        <div id="weathercon">
+            <i class="fas fa-sun" style="color:#eccc68;"></i> 
+        </div>
+     <div id="showWeather"></div>
+     </div>
+
+    <!--Footer-->
+    <div class="footer">
+            <div class="row text-center" style="padding-top:30px;">
+                <p style="color:white">Weather App</p>
+            </div>
+        </div>
+
+</body>
+</html>

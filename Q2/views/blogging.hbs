@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+   <h1 id="hng">Post Blogs </h1>
+    <div class='box'>
+        <form class="form-group" action="/form" method="POST">
+
+            <div class='head'>
+                <div>
+                    <label for="title">Title</label>
+                    <input type='text' name='title' placeholder="Title">
+                </div>
+                <div>
+                    <label>category</label>
+                    <select name='cat'>
+                        <option></option>
+                        <option>entertainment</option>
+                        <option>technology</option>
+                        <option>DSA</option>
+                        <option>Web</option>
+                        <option>Android</option>
+                    </select>
+                </div>
+                <div>
+                    <label>email-id</label>
+                    <input name='email' type='email' placeholder="Email">
+                </div>
+                <div>
+                    <label>author</label>
+                    <input name='author' type='text' placeholder="Author">
+                </div>
+            </div>
+            <div class="content">
+                <label>content</label>
+                <textarea name='content' cols='50' rows='5'>write here.....
+                </textarea>
+            </div>
+
+            <button id='submit' class='btn btn-primary' type="submit">Post</button>
+        </form>
+    </div>
+    <div>
+        <ul class="blog_list">
+            {{#each blogs}}
+
+
+            <li>
+                <div class='card'>
+                    
+
+                    <div> <Strong>Title </Strong>{{this.title}}</div>
+                    <div><Strong>Email </Strong>{{this.email}}</div>
+                    <div><Strong>Category </Strong>{{this.cat}}</div>
+                    <div><Strong>Author </Strong>{{this.author}}</div>
+                    <div><Strong>Content </Strong>{{this.content}}</div>
+                </div>
+                <div class="btn_list">
+                    <form action="/delete/{{this.id}}" method="GET"><button type="submit"> ❌</button></form>
+                    <form action="/up/{{this.id}}" method="GET"><button type='submit' class="up">⬆</button></form>
+                    <form action="/down/{{this.id}}" method="GET"><button type='submit' class="down">⬇</button></form>
+                <input type="checkbox" id="box" />Edit
+                <label for="box">
+                    <form class="form-group" action="/update" method="POST">
+                        <input type="hidden" name="id" value="{{this.id}}"/>
+                        <div class='head'>
+                            <div>
+                                <strong>Title</strong>
+                                <input type='text' name='title' value='{{this.title}}' placeholder="Title">
+                            </div>
+                            <div>
+                                <strong>Category</strong>
+                                <select name='cat'>
+                                    <option></option>
+                                    <option>entertainment</option>
+                                    <option>technology</option>
+                                    <option>DSA</option>
+                                    <option>Web</option>
+                                    <option>Android</option>
+                                </select>
+                            </div>
+                            <div>
+                                <strong>Email ID</strong>
+                                <input name='email' type='email' value='{{this.email}}' placeholder="Email">
+                            </div>
+                            <div>
+                                <strong>Author</strong>
+                                <input name='author' type='text' value='{{this.author}}' placeholder="Author">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <strong>Content</strong>
+                            <textarea name='content' cols='50' rows='5'>{{this.content}}
+                            </textarea>
+                        </div>
+
+                        <button type="submit">Save</button>
+                    </form>
+                </label>
+                </div>
+
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</html>
